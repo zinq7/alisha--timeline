@@ -1,4 +1,4 @@
-import { getCam } from '../internal.js';
+import camera from "./camera.js";
 
 const _canvas = document.querySelector("canvas");
 const _ctx = _canvas.getContext("2d");
@@ -30,13 +30,12 @@ export function redraw() {
 }
 
 export function showCamera() {
-    const camera = getCam();
     redraw();
     
     ctx.lineWidth = 5;
     ctx.strokeStyle = "black";
     ctx.beginPath();
-    ctx.rect(camera.x, camera.y, camera.width, camera.height);
+    ctx.rect(camera.position.x, camera.position.y, camera.width, camera.height);
     ctx.stroke();
 }
 

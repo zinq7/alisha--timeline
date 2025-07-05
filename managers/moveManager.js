@@ -1,5 +1,5 @@
-import { adjustViewport, updateCamera } from "./cameraManager.js";
-import { camera, showCamera, canvas } from "../internal.js";
+import camera from "./camera.js";
+import { canvas } from "../internal.js";
 
 // CONSIDER: acceleration
 const SPEED = 5;
@@ -25,20 +25,21 @@ export function setupMovement() {
 
 function move(dx, dy) {
     
-    const { x, y } = camera;
-    let newX = x + SPEED * dx;
-    let newY = y + SPEED * dy;
+    
+
+    camera.velocity.dx = dx;
+    camera.velocity.dy = dy;
+
+    // const { x, y } = camera.position;
+    
+    // let newX = x + SPEED * dx;
+    // let newY = y + SPEED * dy;
 
     // semi lazy boundary detection -- camera straight stops fr fr
-    newX = Math.min(newX + camera.width, canvas.width) - camera.width;
-    newX = Math.max(newX, 0);
-    newY = Math.min(newY + camera.height, canvas.height) - camera.height;
-    newY = Math.max(newY, 0);
-
-    updateCamera(newX, newY);
-
-    showCamera();
-    adjustViewport();
+    // newX = Math.min(newX + camera.width, canvas.width) - camera.width;
+    // newX = Math.max(newX, 0);
+    // newY = Math.min(newY + camera.height, canvas.height) - camera.height;
+    // newY = Math.max(newY, 0);
 }
 
 export function hello() {

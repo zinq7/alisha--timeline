@@ -1,4 +1,5 @@
 import { FpsController } from "../util/fpsController.js";
+import camera from "./camera.js";
 
 let anim = "";
 let fpsController = "";
@@ -8,9 +9,6 @@ export function setupGame() {
     anim = requestAnimationFrame(tick);
     fpsController = new FpsController();
     i = 0;
-    setTimeout(() => {
-        cancelAnimationFrame(anim);
-    }, 1000);
 }
 
 function tick(timestamp) {
@@ -20,5 +18,7 @@ function tick(timestamp) {
     }
 
     console.log(i++);
+
+    camera.update();
 }
 
