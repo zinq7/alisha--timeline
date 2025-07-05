@@ -1,5 +1,7 @@
-var canvas = null;
-var ctx = null;
+import { getCam } from './internal.js';
+
+const _canvas = document.querySelector("canvas");
+const _ctx = _canvas.getContext("2d");
 
 function drawPattern() {
     for (let i = 0.5; i < 10; i++) {
@@ -12,17 +14,12 @@ function drawPattern() {
 
         i += i / 2;
     }
-
-    
 }
 
-export function setupCanvas(canva, c) {
-    canva.width = 4000;
-    canva.height = 500;
-    canva.style.backgroundColor = "gray"
-    
-    canvas = canva;
-    ctx = c;
+export function setupCanvas() {
+    canvas.width = 4000;
+    canvas.height = 500;
+    canvas.style.backgroundColor = "gray"
     
     drawPattern();
 }
@@ -32,7 +29,8 @@ export function redraw() {
     drawPattern();
 }
 
-export function showCamera(camera) {
+export function showCamera() {
+    const camera = getCam();
     redraw();
     
     ctx.lineWidth = 5;
@@ -41,3 +39,6 @@ export function showCamera(camera) {
     ctx.rect(camera.x, camera.y, camera.width, camera.height);
     ctx.stroke();
 }
+
+export const canvas = _canvas;
+export const ctx = _ctx;
