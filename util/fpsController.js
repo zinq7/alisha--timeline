@@ -1,6 +1,6 @@
 export class FpsController {
-    constructor() {
-        this.fps = 60;
+    constructor(fps) {
+        this.fps = fps;
         this.delay = 1000 / this.fps; // 16.667 ms
         this.start = null;
         this.frame = -1;

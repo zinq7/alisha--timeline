@@ -9,7 +9,7 @@ function drawPattern() {
         ctx.lineWidth = 20;
         ctx.strokeStyle = "orange";
         ctx.moveTo(0, 50 * i);
-        ctx.lineTo(4000, 50 * i);
+        ctx.lineTo(4000, 100 * i);
         ctx.stroke();
 
         i += i / 2;

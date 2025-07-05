@@ -22,7 +22,7 @@ class Camera {
         this.width = 400;
         this.height = 400;
     }
-    
+
     draw() {
         this.vpCtx.reset();
         const { x, y } = this.position;
@@ -34,8 +34,21 @@ class Camera {
     }
 
     update() {
-        this.position.x += this.velocity.dx;
-        this.position.y += this.velocity.dy;
+        const { x, y } = this.position;
+        const { dx, dy } = this.velocity;
+
+        let newX = x + dx;
+        let newY = y + dy;
+
+        // semi lazy boundary detection -- camera straight stops fr fr
+        newX = Math.min(newX + this.width, canvas.width) - this.width;
+        newX = Math.max(newX, 0);
+        newY = Math.min(newY + this.height, canvas.height) - this.height;
+        newY = Math.max(newY, 0);
+
+        this.position.x = newX;
+        this.position.y = newY;
+
         this.draw();
     }
 }
