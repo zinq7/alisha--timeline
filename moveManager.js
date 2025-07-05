@@ -6,14 +6,19 @@ const SPEED = 5;
 
 export function setupMovement() {
     document.onkeydown = (e) => {
-        if (e.key == "d") {
-            move(1, 0);
-        } else if (e.key == "s") {
-            move(0, 1);
-        } else if (e.key == "a") {
-            move(-1, 0);
-        } else if (e.key == "w") {
-            move(0, -1);
+        console.log(e);
+        // shift = sprint
+        const pace = (e.shiftKey ? 2 : 1); 
+        const key = e.key.toLowerCase();
+
+        if (key == "d") {
+            move(pace, 0);
+        } else if (key == "s") {
+            move(0, pace);
+        } else if (key == "a") {
+            move(-pace, 0);
+        } else if (key == "w") {
+            move(0, -pace);
         }
     }
 }
