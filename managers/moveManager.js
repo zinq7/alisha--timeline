@@ -1,5 +1,5 @@
 import { adjustViewport, updateCamera } from "./cameraManager.js";
-import { camera, showCamera, canvas } from "./internal.js";
+import { camera, showCamera, canvas } from "../internal.js";
 
 // CONSIDER: acceleration
 const SPEED = 5;

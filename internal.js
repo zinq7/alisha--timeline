@@ -1,4 +1,3 @@
-export * from './canvasManager.js';
-export * from './script.js';
-export * from './cameraManager.js';
-export * from './moveManager.js';
+export * from './managers/canvasManager.js';
+export * from './managers/cameraManager.js';
+export * from './managers/moveManager.js';

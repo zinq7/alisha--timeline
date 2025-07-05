@@ -1,7 +1,7 @@
-import { setupCanvas, showCamera } from "./canvasManager.js";
-import { adjustViewport, getCam, updateCamera, setupViewport } from './cameraManager.js';
-import { setupMovement } from "./moveManager.js";
-import { setupGame } from "./gameManager.js";
+import { setupCanvas, showCamera } from "./managers/canvasManager.js";
+import { adjustViewport, getCam, updateCamera, setupViewport } from './managers/cameraManager.js';
+import { setupMovement } from "./managers/moveManager.js";
+import { setupGame } from "./managers/gameManager.js";
 
 
 setupCanvas();

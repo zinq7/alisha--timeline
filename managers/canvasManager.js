@@ -1,4 +1,4 @@
-import { getCam } from './internal.js';
+import { getCam } from '../internal.js';
 
 const _canvas = document.querySelector("canvas");
 const _ctx = _canvas.getContext("2d");

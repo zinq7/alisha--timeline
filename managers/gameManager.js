@@ -1,4 +1,4 @@
-import { FpsController } from "./fpsController.js";
+import { FpsController } from "../util/fpsController.js";
 
 let anim = "";
 let fpsController = "";

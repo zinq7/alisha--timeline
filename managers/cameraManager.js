@@ -1,4 +1,4 @@
-import { canvas } from "./internal.js";
+import { canvas } from "../internal.js";
 
 const _viewport = document.getElementById("viewport");
 const _vpCtx = _viewport.getContext("2d");
