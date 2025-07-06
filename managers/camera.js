@@ -1,14 +1,18 @@
 import { canvas } from "../internal.js";
 import { showCamera } from "../internal.js";
+import { isSprinting } from './inputManager.js';
 
 class Camera {
+    WIDTH = 1920;
+    HEIGHT = 1080;
+
     // default camera
     constructor() {
         this.viewport = document.getElementById("viewport");
         this.viewport.style.backgroundColor = "green";
-        this.viewport.width = 400;
-        this.viewport.height = 400;
-        this.vpCtx = this.viewport.getContext("2d"); // fix this later
+        this.viewport.width = this.WIDTH;
+        this.viewport.height = this.HEIGHT;
+        this.vpCtx = this.viewport.getContext("2d");
         this.position = {
             x: 10,
             y: 10
@@ -19,8 +23,9 @@ class Camera {
             dy: 0
         };
 
-        this.width = 400;
-        this.height = 400;
+        // camera manages how much of screen to show; optimally 1920 * 1080;
+        this.width = 1920;
+        this.height = 1080;
     }
 
     draw() {
@@ -28,7 +33,7 @@ class Camera {
         const { x, y } = this.position;
         const { width, height } = this;
 
-        this.vpCtx.drawImage(canvas, x, y, width, height, 0, 0, 400, 400);
+        this.vpCtx.drawImage(canvas, x, y, width, height, 0, 0, this.WIDTH, this.HEIGHT);
 
         showCamera();
     }
@@ -39,6 +44,12 @@ class Camera {
 
         let newX = x + dx;
         let newY = y + dy;
+
+        // double velo
+        if (isSprinting()) {
+            newX += dx;
+            newY += dy;
+        }
 
         // semi lazy boundary detection -- camera straight stops fr fr
         newX = Math.min(newX + this.width, canvas.width) - this.width;

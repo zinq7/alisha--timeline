@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <body>
-    <canvas>
+    <canvas hidden>
         <!-- the canvas with all the components to scroll through, only a small viewport is rendered. -->
     </canvas>
 
@@ -9,5 +9,10 @@
         <!-- this is the screen that the player will realistically see, should span the screen doesn't for debugging -->
     </canvas>
 
+    <canvas id="ui-overlay">
+        <!-- this is the screen that the player will have exactly overtop the previous canvas -->
+    </canvas>
+
     <script src="script.js" type="module"></script>
+    <link rel="stylesheet" href="defaults.css">
 </body>
