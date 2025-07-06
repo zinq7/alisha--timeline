@@ -1,6 +1,6 @@
 import { canvas } from "../internal.js";
 import { showCamera } from "../internal.js";
-import { isSprinting } from './inputManager.js';
+import input from './inputManager.js';
 
 class Camera {
     WIDTH = 1920;
@@ -46,7 +46,7 @@ class Camera {
         let newY = y + dy;
 
         // double velo
-        if (isSprinting()) {
+        if (input.isSprinting()) {
             newX += dx;
             newY += dy;
         }
