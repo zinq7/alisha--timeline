@@ -1,5 +1,6 @@
 import { FpsController } from "../util/fpsController.js";
 import camera from "./camera.js";
+import map from "./mapManager.js";
 
 class GameManager {
     constructor() {
@@ -23,6 +24,7 @@ class GameManager {
         
         // important things: ... 
         camera.update();
+        map.update();
     }
 }
 

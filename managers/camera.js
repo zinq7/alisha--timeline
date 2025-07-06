@@ -1,5 +1,4 @@
-import { canvas } from "../internal.js";
-import { showCamera } from "../internal.js";
+import map from "./mapManager.js";
 import input from './inputManager.js';
 
 class Camera {
@@ -33,9 +32,7 @@ class Camera {
         const { x, y } = this.position;
         const { width, height } = this;
 
-        this.vpCtx.drawImage(canvas, x, y, width, height, 0, 0, this.WIDTH, this.HEIGHT);
-
-        showCamera();
+        this.vpCtx.drawImage(map.canvas, x, y, width, height, 0, 0, this.WIDTH, this.HEIGHT);
     }
 
     update() {
@@ -52,9 +49,9 @@ class Camera {
         }
 
         // semi lazy boundary detection -- camera straight stops fr fr
-        newX = Math.min(newX + this.width, canvas.width) - this.width;
+        newX = Math.min(newX + this.width, map.canvas.width) - this.width;
         newX = Math.max(newX, 0);
-        newY = Math.min(newY + this.height, canvas.height) - this.height;
+        newY = Math.min(newY + this.height, map.canvas.height) - this.height;
         newY = Math.max(newY, 0);
 
         this.position.x = newX;
