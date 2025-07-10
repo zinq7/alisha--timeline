@@ -1,12 +1,14 @@
 import { FpsController } from "../util/fpsController.js";
 import camera from "./camera.js";
 import map from "./mapManager.js";
+import ui from "./uiManager.js";
 
 class GameManager {
     constructor() {
         this.anim = null;
         this.fpsController = new FpsController(60);
         this.tickNum = 0;
+        this.items = [];
     }
 
     start() {
@@ -25,6 +27,12 @@ class GameManager {
         // important things: ... 
         camera.update();
         map.update();
+        ui.update();
+    }
+
+    addItem(eventItem) {
+        this.items.push(eventItem);
+        map.loadPoi(eventItem);
     }
 }
 

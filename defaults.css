@@ -19,3 +19,8 @@ body, html {
 #ui-overlay {
     z-index: 1;
 }
+
+@font-face {
+    font-family: "PogFont";
+    src: url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
+}

@@ -1,8 +1,8 @@
 import camera from "./camera.js";
 
 class MapManager {
-    WIDTH = 4000;
-    HEIGHT = 1080 * 2;
+    WIDTH = 8000;
+    HEIGHT = 1200;
 
     constructor() {
         this.canvas = document.querySelector("canvas");
@@ -11,6 +11,8 @@ class MapManager {
         this.canvas.height = this.HEIGHT;
 
         this.canvas.style.backgroundColor = "gray"; // debugging
+
+        this.pois = [];
     }
 
     drawPattern() {
@@ -44,6 +46,10 @@ class MapManager {
     draw() {
         this.ctx.reset();
         this.drawPattern();
+
+        this.pois.forEach((eventItem) => {
+            eventItem.draw(this.ctx);
+        })
         // this.drawCamera(); // this is for debugging on the scaled map, irrelevant
     }
 
@@ -53,6 +59,10 @@ class MapManager {
         this.ctx.strokeStyle = "black";
         this.ctx.rect(camera.position.x, camera.position.y, camera.width, camera.height);
         this.ctx.stroke();
+    }
+    
+    loadPoi(eventItem) {
+        this.pois.push(eventItem);
     }
 }
 
