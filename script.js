@@ -5,7 +5,7 @@ import ui from './managers/uiManager.js';
 import { EventItem } from './util/eventItem.js';
 
 map.draw();
-input.setupMovement();
+input.setup();
 game.start();
 ui.draw();
 

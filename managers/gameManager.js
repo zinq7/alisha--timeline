@@ -50,6 +50,28 @@ class GameManager {
             y: camera.position.y + camera.HEIGHT / 2,
         }
     }
+
+    async pause() {
+        const { x, y } = this.getGameCoords();
+        const adj = this.items.find((item) => item.checkCollision(camera.WIDTH * 0.1, camera.WIDTH * 0.1, x, y));
+
+        if (!adj) {
+            return false;
+        }
+        
+        // awaiting promises low load time its finnnneee
+        const res = await fetch(adj.path + ".json");
+        const json = await res.json(); 
+
+        ui.pauseMenu(json); 
+
+        return true;
+    }
+
+    unpause() {
+        ui.unpauseMenu();
+        return false;
+    }
 }
 
 export default new GameManager();

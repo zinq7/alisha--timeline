@@ -42,6 +42,27 @@ class UIManager {
         this.overCtx.drawImage(img, 0, 0, 442, 442, x, y, dim, dim);
         // ui = cam * 2
     }
+
+    pauseMenu(json) {
+        document.getElementById("infopanel").style.display = "flex";
+        
+        // fill in content;
+        const { day, acc, eventName, description, rating } = json; // get relevant fields
+        document.getElementById("info-img").src = acc;
+        document.getElementById("info-description").innerHTML = "<i>" + description + "</i>";
+        document.getElementById("info-rating").innerText = rating;
+        document.getElementById("info-title").innerText = eventName;
+
+        const start = new Date(1724767200000);
+        start.setDate(start.getDate() + day);
+
+        document.getElementById("info-day").innerText = start.toDateString();
+
+    }
+
+    unpauseMenu() {
+        document.getElementById("infopanel").style.display = "none";
+    }
 }
 
 export default new UIManager();
