@@ -1,4 +1,5 @@
 import pp from './positionPlacer.js';
+import { Tooltip } from './tooltip.js';
 
 
 export class EventItem {
@@ -39,6 +40,8 @@ export class EventItem {
         this.position.y = pp.getYForVibes(vibes);
         this.position.y -= pp.offsetY(h);
 
+        this.tooltip = new Tooltip(json);
+        
         this.isLoaded = true;
     }
 
@@ -49,10 +52,31 @@ export class EventItem {
         ctx.drawImage(img, 0, 0, this.imgWidth, this.imgHeight, this.position.x, this.position.y, this.width, this.height);
     }
 
-    checkColision(range, gameX, gameY) {
-        const minX = gameX;
-        if (this.position.x) {
-            // TODO
+    checkCollision(detX, detY, gameX, gameY) {
+        const top = this.position.y;
+        const left = this.position.x;
+        const bot = top + this.height;
+        const right = left + this.width;
+
+        const dTop = gameY - detY;
+        const dBot = gameY + detY - 96;
+        const dLeft = gameX - detX;
+        const dRight = gameX + detX - 96; // 96 is a magic number...
+
+        let xFlag = false;
+        if (top <= dBot && bot >= dTop) {
+            xFlag = true;
+        } else if (bot <= dTop && top >= dBot) {
+            xFlag = true;
         }
+
+        let yFlag = false;
+        if (left <= dRight && right >= dLeft) {
+            yFlag = true;
+        } else if (right <= dLeft && left >= dRight) {
+            yFlag = true;
+        }
+
+        return xFlag && yFlag;
     }
 }

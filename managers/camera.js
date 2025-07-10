@@ -2,8 +2,8 @@ import map from "./mapManager.js";
 import input from './inputManager.js';
 
 class Camera {
-    WIDTH = 1920;
-    HEIGHT = 1080;
+    WIDTH = 1000;
+    HEIGHT = 500;
 
     // default camera
     constructor() {
@@ -23,8 +23,8 @@ class Camera {
         };
 
         // camera manages how much of screen to show; optimally 1920 * 1080;
-        this.width = 1920;
-        this.height = 1080;
+        this.width = this.WIDTH;
+        this.height = this.HEIGHT;
     }
 
     draw() {

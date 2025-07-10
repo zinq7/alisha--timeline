@@ -30,8 +30,8 @@ class PositionPlacer {
                 
             case "small":
                 return {
-                    width: nWidth * 200,
-                    height: nHeight * 200,
+                    width: nWidth * 100,
+                    height: nHeight * 100,
                 }
             
             default: // invalid

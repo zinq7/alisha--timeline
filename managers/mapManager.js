@@ -1,8 +1,8 @@
 import camera from "./camera.js";
 
 class MapManager {
-    WIDTH = 8000;
-    HEIGHT = 1200;
+    WIDTH = 5000;
+    HEIGHT = 750;
 
     constructor() {
         this.canvas = document.querySelector("canvas");

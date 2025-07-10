@@ -1,7 +1,7 @@
 class UIManager {
     // simply the camera resolution. quality
-    WIDTH = 1920;
-    HEIGHT = 1080;
+    WIDTH = 2000;
+    HEIGHT = 1000;
 
     constructor() {
         this.overlay = document.getElementById("ui-overlay");
@@ -15,7 +15,7 @@ class UIManager {
 
     // reminder: they're temporary...
     addUiElement(x) {
-        this.uiElements.add(x);
+        this.uiElements.push(x);
     }
 
     update() {
@@ -26,20 +26,21 @@ class UIManager {
 
     draw() {
         this.drawCrosshair();
+        this.uiElements.forEach((x) => {
+            x.draw(this.overCtx);
+        });
     }
 
     drawCrosshair() {
         const img = new Image();
-        img.src = "/assets/crosshair.webp";
+        img.src = "/assets/crosshair.png";
         img.alt = "bruv";
 
         const x = this.WIDTH / 2 - this.WIDTH * 0.1;
         const y = this.HEIGHT / 2 - this.WIDTH * 0.1; // x + based (loser)
         const dim = this.WIDTH * 0.2;
         this.overCtx.drawImage(img, 0, 0, 442, 442, x, y, dim, dim);
-
-        console.log("drawing ctx")
-        console.log(x, y, dim);
+        // ui = cam * 2
     }
 }
 
