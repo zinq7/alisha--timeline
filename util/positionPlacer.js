@@ -4,10 +4,10 @@ class PositionPlacer {
     MAP_WIDTH = map.WIDTH;
     MAP_HEIGHT = map.HEIGHT;
     MAX_DAYS = 315; // days since aug 28
-    BUFFER_L = 100; 
-    BUFFER_R = 100;
+    BUFFER_L = 500; 
+    BUFFER_R = 500;
     BUFFER = this.BUFFER_L + this.BUFFER_R;
-    VIBES_SCALE = 1.2; // actually 1 self incorporated buffer
+    VIBES_SCALE = 2.5; // actually 1 self incorporated buffer
 
     getSizeScaling(preset, width, height) {
         const max = Math.max(width, height);
@@ -17,14 +17,14 @@ class PositionPlacer {
         switch (preset) {
             case "big":
                 return {
-                    width: nWidth * 400,
-                    height: nHeight * 400,
+                    width: nWidth * 200,
+                    height: nHeight * 200,
                 }
 
             case "mid":
                 return {
-                    width: nWidth * 200,
-                    height: nHeight * 200,
+                    width: nWidth * 140,
+                    height: nHeight * 140,
                 }
 
                 

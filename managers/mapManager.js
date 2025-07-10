@@ -32,10 +32,10 @@ class MapManager {
         img.alt = "heyo this img sucks";
         this.ctx.drawImage(img, 0, 0, 1040, 280, 0, 0, this.WIDTH, this.HEIGHT);
 
-        img = new Image();
-        img.src = "/assets/high.avif";
-        img.alt = "why am i setting alt if it never breaks";
-        this.ctx.drawImage(img, 0, 0, 740, 886, 100, 100, 740 / 2, 886 / 2);
+        // img = new Image();
+        // img.src = "/assets/high.avif";
+        // img.alt = "why am i setting alt if it never breaks";
+        // this.ctx.drawImage(img, 0, 0, 740, 886, 100, 100, 740 / 2, 886 / 2);
     }
 
     update() {

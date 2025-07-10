@@ -9,8 +9,20 @@ input.setupMovement();
 game.start();
 ui.draw();
 
-const ev = new EventItem("/assets/events/meeting");
+const events = [];
+const promises = [];
+await fetch("/events.json").then((res) => {
+    return res.json();
+}).then((json) => {
+    json.forEach(element => {
+        const ev = new EventItem("/assets/events/" + element);
+        promises.push(ev.loadFile());
+        events.push(ev);
+    });
+})
 
-await ev.loadFile();
+await Promise.all(promises);
 
-game.addItem(ev);
+events.forEach(ev => game.addItem(ev));
+
+// game.addItem(events[0])

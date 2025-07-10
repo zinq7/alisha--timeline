@@ -1,8 +1,12 @@
 {
     "imgWidth": 862,
     "imgHeight": 553,
-    "day": 100,
-    "vibes": 0,
+    "day": 0,
+    "vibes": -1,
     "sizePreset": "small",
-    "fileFormat": "jpg"
+    "fileFormat": "jpg",
+    "eventName": "Meeting",
+    "rating": "6/10 jump start core",
+    "description": "Hey i met a lot of people, u included but only started talking to abouts later yknow.",
+    "acc": "https://cdn.discordapp.com/attachments/1030994090986315828/1392970051077804094/8bc2818c-d14f-44e9-b5f9-9c07d6d341f8.jpg?ex=687177f4&is=68702674&hm=f2694ed2e207fef48b2294d8a3080e65b0ab4772104f9a4e0e5a22626a128293&"
 }

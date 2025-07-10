@@ -13,7 +13,7 @@ export class Tooltip {
 
     draw(ctx) {
         ctx.beginPath();
-        ctx.font = "25vh cursive";
+        ctx.font = "10vw monospace";
         ctx.fillText(this.day, 10, 200);
     }
 }
