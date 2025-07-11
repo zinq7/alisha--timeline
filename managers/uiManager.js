@@ -33,7 +33,7 @@ class UIManager {
 
     drawCrosshair() {
         const img = new Image();
-        img.src = "/assets/crosshair.png";
+        img.src = "assets/crosshair.png";
         img.alt = "bruv";
 
         const x = this.WIDTH / 2 - this.WIDTH * 0.1;

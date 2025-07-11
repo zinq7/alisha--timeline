@@ -1,6 +1,5 @@
 import pp from './positionPlacer.js';
 
-
 export class EventItem {
     constructor(itemPath) {
         this.isLoaded = false;
