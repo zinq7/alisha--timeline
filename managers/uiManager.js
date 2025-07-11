@@ -56,7 +56,7 @@ class UIManager {
         const start = new Date(1724767200000);
         start.setDate(start.getDate() + day);
 
-        document.getElementById("info-day").innerText = start.toDateString();
+        document.getElementById("info-date").innerText = start.toDateString();
 
     }
 
