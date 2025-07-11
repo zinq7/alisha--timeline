@@ -1,5 +1,4 @@
 import pp from './positionPlacer.js';
-import { Tooltip } from './tooltip.js';
 
 
 export class EventItem {
@@ -39,8 +38,6 @@ export class EventItem {
         this.position.x -= pp.offsetX(w);
         this.position.y = pp.getYForVibes(vibes);
         this.position.y -= pp.offsetY(h);
-
-        this.tooltip = new Tooltip(json);
         
         this.isLoaded = true;
     }
