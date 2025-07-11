@@ -9,6 +9,7 @@ class UIManager {
         this.overlay.height = this.HEIGHT;
         this.overCtx = this.overlay.getContext("2d");
         this.uiElements = []; // unused rn
+        this.selecting = false;
 
         console.log(this.overlay);
     }
@@ -33,7 +34,7 @@ class UIManager {
 
     drawCrosshair() {
         const img = new Image();
-        img.src = "assets/crosshair.png";
+        img.src = this.selecting ? "assets/crosshairSelected.png" : "assets/crosshair.png";
         img.alt = "bruv";
 
         const x = this.WIDTH / 2 - this.WIDTH * 0.1;

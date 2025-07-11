@@ -24,10 +24,11 @@ class GameManager {
 
         this.tickNum++;
 
+        ui.selecting = false;
         this.items.forEach((gameItem) => {
             const { x, y } = this.getGameCoords();
             if (gameItem.checkCollision(camera.WIDTH * 0.1, camera.WIDTH * 0.1, x, y)) {
-                console.log('touching element ' + gameItem.path); // doesn't do anything lmaaaaao
+                ui.selecting = true;
                 return;
             }
         });

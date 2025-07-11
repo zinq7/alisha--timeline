@@ -28,7 +28,7 @@ class MapManager {
         }
 
         let img = new Image();
-        img.src = "assets/road.webp";
+        img.src = "assets/road2.png";
         img.alt = "heyo this img sucks";
         this.ctx.drawImage(img, 0, 0, 1040, 280, 0, 0, this.WIDTH, this.HEIGHT);
 

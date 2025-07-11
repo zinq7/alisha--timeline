@@ -13,8 +13,8 @@ class Camera {
         this.viewport.height = this.HEIGHT;
         this.vpCtx = this.viewport.getContext("2d");
         this.position = {
-            x: 10,
-            y: 10
+            x: 0,
+            y: 125
         };
 
         this.velocity = {
