@@ -11,11 +11,11 @@ ui.draw();
 
 const events = [];
 const promises = [];
-await fetch("/events.json").then((res) => {
+await fetch("events.json").then((res) => {
     return res.json();
 }).then((json) => {
     json.forEach(element => {
-        const ev = new EventItem("/assets/events/" + element);
+        const ev = new EventItem("assets/events/" + element);
         promises.push(ev.loadFile());
         events.push(ev);
     });
